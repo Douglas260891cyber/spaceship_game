@@ -28,6 +28,7 @@ const iniciarJogo = () => {
     //Inicializa a função que movimenta a nave.
     document.addEventListener('keydown', moveNave); 
 }
+//testeddd
 
 btnStart.addEventListener('click', iniciarJogo);
 
