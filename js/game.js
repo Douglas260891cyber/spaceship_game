@@ -1,3 +1,4 @@
+
 const btnStart = document.querySelector('.iniciar');
 const nave = document.querySelector('.nave'); 
 let posicaoNaveTop = 250;
@@ -5,7 +6,7 @@ let posicaoNaveLeft = 10;
 
 const moveNave = event => {
     let tecla = event.keyCode;
-    //37-esquerda 38-cima 39-direita 40-baixo
+    //37-esquerda 38-cima 39-direita 40-baixo espaço-32
     if (tecla === 37) {
       posicaoNaveLeft-= 10; //O 10 é o tamanho do deslocamento/salto;
       nave.style.left = `${posicaoNaveLeft}px`;
@@ -22,8 +23,8 @@ const moveNave = event => {
   }
 
 const iniciarJogo = () => {
-    nave.style.zIndex = 15; 
-    btnStart.style.zIndex = -1; 
+    nave.style.display = 'flex'; 
+    btnStart.style.display = 'none'; 
     
     //Inicializa a função que movimenta a nave.
     document.addEventListener('keydown', moveNave); 
