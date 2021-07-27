@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,19 @@
     <title>SPACESHIP GAME</title>
 
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/animaCeu.css">
 </head>
+
 <body>
     <div id="area_jogo">
-      <div class="nave"><img src="img/nave_2.png" alt="" width="80px"></div>
-      <div class="estrelas"></div>
+        <div class="barra-vida">Vida</div>
+        <div class="nave"><img src="img/nave.gif" alt="" width="80px"></div>
+        <div class="estrelas"></div>
     </div>
     <button class="iniciar">Start</button>
 
-    <script src="./js/game.js"></script>    
+    <script src="./js/game.js"></script>
+    <script src="js/movendoNave.js"></script>
 </body>
+
 </html>

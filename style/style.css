@@ -1,114 +1,65 @@
 body {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  text-align: center;
-  overflow-y: hidden;
-  overflow-x: hidden; /*Para não mostrar a barra de rolagem*/ 
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    text-align: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    /*Para não mostrar a barra de rolagem*/
 }
 
 #area_jogo {
-  background-color: rgb(14, 22, 97);
-  width: 1200px;
-  height: 500px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -250px; /*altura*/
-  margin-left: -600px;
-  padding: 5px;
-  background: linear-gradient(0, #120c56, #000000);
+    overflow: hidden;
+    /*Impede que elementos ultrapasem os limites de uma div*/
+    background-color: rgb(14, 22, 97);
+    width: 1200px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    /*altura*/
+    margin-left: -600px;
+    padding: 5px;
+    background: linear-gradient(0, #120c56, #000000);
 }
 
-.estrelas{
-	width: 3px;
-	height: 3px;
-	border-radius: 50%;
-  position: relative;
-  /*Criando diversos clones das estrelas com a propriedade 'box-shadow'*/
-  box-shadow: 
-  100px 110px white,
-  50px 200px white,
-  200px 80px white,
-  80px 220px white,
-  300px 20px white,
-  650px 430px white,
-  500px 60px white,
-  550px 500px white,
-  720px 100px white,
-  700px 10px white,
-  650px 300px white,
-  420px 400px white,
-  900px 200px white,
-  1000px 300px white,
-  820px 400px white;/*Posição horizontal, vertical e cor da estrela*/
-
-  animation: anim-stars 12s linear infinite; /*Chamando a animação*/
+.barra-vida{
+    background-color: blue;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+    display: none;
+    border: white solid 2px;
+    width: 90px;
+    height: 15px;
+    z-index: 20;  
 }
 
-/*Animação*/
-@keyframes anim-stars {
-  from {
-      transform: translateX(1170px);
-  }
-  to {
-      transform: translateX(-980px);
-  }
+.iniciar {
+    position: absolute;
+    bottom: 90px;
+    height: 50px;
+    width: 110px;
+    background-color: cadetblue;
+    border: none;
+    font-size: 16px;
+    color: white;
+    left: 50%;
+    margin-left: -45px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/*Fazendo uma cópia de toda a estrutura das estrelas*/
-.estrelas::after{
-  content: " ";
-  position: absolute;
-  top: 100px;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  box-shadow: 
-  100px 110px white,
-  50px 200px white,
-  200px 80px white,
-  80px 220px white,
-  300px 20px white,
-  650px 430px white,
-  500px 60px white,
-  550px 500px white,
-  720px 100px white,
-  700px 10px white,
-  650px 300px white,
-  420px 400px white,
-  900px 200px white,
-  1000px 300px white,
-  820px 400px white;
+.iniciar:hover {
+    color: cadetblue;
+    background-color: white;
+    transition: .5s;
 }
 
-/*OBS - CONTINUAR EM: https://www.treinaweb.com.br/blog/como-fazer-animacao-infinita-de-fundo-com-css*/
-
-.iniciar{
-  position: absolute;
-  bottom: 90px;
-  height: 50px;
-  width: 110px;
-  background-color: cadetblue;
-  border: none;
-  font-size: 16px;
-  color: white; 
-  left:50%; 
-  margin-left: -45px;
-  border-radius: 5px;
-  cursor: pointer;
+.nave {
+    position: absolute;
+    display: none;
+    top: 250px;
+    margin-top: -5px;
 }
-
-.iniciar:hover{
-  color: cadetblue;
-  background-color: white;
-  transition: .5s;
-}
-
-.nave{
-  position: absolute;
-  display: none;
-  top: 250px; 
-  margin-top: -5px;
-}
-
