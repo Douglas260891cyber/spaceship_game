@@ -31,14 +31,14 @@ body {
     font-weight: bolder;
     display: none;
     border: white solid 2px;
-    width: 90px;
+    width: 300px;
     height: 15px;
     z-index: 20;  
 }
 
 .iniciar {
     position: absolute;
-    bottom: 90px;
+    bottom: 88px;
     height: 50px;
     width: 110px;
     background-color: cadetblue;
@@ -62,4 +62,17 @@ body {
     display: none;
     top: 250px;
     margin-top: -5px;
+}
+
+.alien{
+    position: relative;
+    z-index: 150;
+}
+
+.tiro-nave{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 6px;
 }
