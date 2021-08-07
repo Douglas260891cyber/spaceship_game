@@ -63,7 +63,7 @@ body {
     top: 250px;
     left: 5px;
     margin-top: -5px;
-    border: solid 1px red;
+    z-index: 15;
 }
 
 .alien{
@@ -73,6 +73,6 @@ body {
 
 .tiro-nave{
     position: relative;
-    width: 6px;
+    width: 30px;
     height: 6px;
 }

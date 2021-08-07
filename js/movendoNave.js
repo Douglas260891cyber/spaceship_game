@@ -32,17 +32,15 @@ const acaoNave = event => {
             nave.style.top = `${posicaoNaveTop}px`;
         }
     }
-    
+
     if (tecla === 32) {
-       // let posicaoTiroTop = posicaoNaveTop + 95;
-      //  let posicaoTiroLeft = posicaoNaveLeft + 120;
         criaTiro();
     }
-} 
+}
 
 const criaTiro = () => {
-    let laser = elementoTiroCriado(); 
-    areaJogo.appendChild(laser); 
+    let laser = elementoTiroCriado();
+    areaJogo.appendChild(laser);
     moveTiro(laser);
 }
 
@@ -52,19 +50,19 @@ const elementoTiroCriado = () => {
     let novoTiro = document.createElement('img');
     novoTiro.src = 'img/disparo.png';
     novoTiro.classList.add('tiro-nave');
-    novoTiro.style.left = `${tiroHorizontal -600}px`;
+    novoTiro.style.left = `${tiroHorizontal - 580}px`;
     novoTiro.style.top = `${tiroVertical}px`;
     return novoTiro;
 }
 
 const moveTiro = laser => {
     let laserIntervalo = setInterval(() => {
-        let posicaoHorisontal = parseInt(laser.style.left);
+        let posicaoHorizontal = parseInt(laser.style.left);
 
-        if(posicaoHorisontal === 340){
+        if (posicaoHorizontal >= 640) {
             laser.remove();
-        }else{
-            laser.style.left = `${posicaoHorisontal + 8}px`;
+        } else {
+            laser.style.left = `${posicaoHorizontal + 8}px`;
         }
     }, 10);
 }

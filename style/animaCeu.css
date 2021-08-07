@@ -6,10 +6,9 @@
     /*Criando diversos clones das estrelas com a propriedade 'box-shadow'*/
     box-shadow: 100px 110px white, 50px 200px white, 200px 80px white, 80px 220px white, 300px 20px white, 650px 430px white, 500px 60px white, 550px 500px white, 720px 100px white, 700px 10px white, 650px 300px white, 420px 400px white, 900px 200px white, 1000px 300px white, 820px 400px white;
     /*Posição horizontal, vertical e cor da estrela*/
-    animation: anim-stars 12s linear infinite;
+    animation: anim-stars 10s linear infinite;
     /*Chamando a animação*/
 }
-
 
 /*Animação*/
 
@@ -21,7 +20,6 @@
         transform: translateX(-980px);
     }
 }
-
 
 /*Fazendo uma cópia de toda a estrutura das estrelas*/
 
@@ -35,5 +33,25 @@
     box-shadow: 100px 110px white, 50px 200px white, 200px 80px white, 80px 220px white, 300px 20px white, 650px 430px white, 500px 60px white, 550px 500px white, 720px 100px white, 700px 10px white, 650px 300px white, 420px 400px white, 900px 200px white, 1000px 300px white, 820px 400px white;
 }
 
+/*Animação das estrelas dois. Dando sensação de profundidade*/
+
+.estrelas2 {
+    position: relative;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    box-shadow: 15px 15px white, 125px 35px white, 50px 80px white, 10px 120px white, 275px 90px white, 230px 10px white, 120px 130px white, 300px 130px white, 220px 115px white, 125px 100px white, 50px 189px white, 800px 128px white, 775px 390px white, 630px 100px white, 520px 160px white, 400px 240px white, 320px 155px white, 900px 130px white, 920px 115px white, 825px 100px white, 80px 189px white, 700px 128px white, 775px 390px white, 630px 100px white, 620px 160px white, 500px 240px white, 520px 155px white;
+    animation: anim-stars 20s linear infinite;
+}
+
+.estrelas2::after {
+    content: " ";
+    position: absolute;
+    top: 150px;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    box-shadow: 15px 15px white, 125px 35px white, 50px 80px white, 10px 120px white, 275px 90px white, 230px 10px white, 120px 130px white, 300px 130px white, 220px 115px white, 125px 100px white, 50px 189px white, 800px 128px white, 775px 390px white, 630px 100px white, 520px 160px white, 400px 240px white, 320px 155px white, 900px 130px white, 920px 115px white, 825px 100px white, 80px 189px white, 700px 128px white, 775px 390px white, 630px 100px white, 620px 160px white, 500px 240px white, 520px 155px white;
+}
 
 /*OBS - CONTINUAR EM: https://www.treinaweb.com.br/blog/como-fazer-animacao-infinita-de-fundo-com-css*/
