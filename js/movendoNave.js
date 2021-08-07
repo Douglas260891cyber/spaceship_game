@@ -16,6 +16,7 @@ const acaoNave = event => {
             nave.style.left = `${posicaoNaveLeft}px`;
         }
     }
+
     if (tecla === 38) {
         if (posicaoNaveTop <= 4) {
             posicaoNaveTop += 0
@@ -30,21 +31,40 @@ const acaoNave = event => {
             posicaoNaveTop += 11;
             nave.style.top = `${posicaoNaveTop}px`;
         }
-    } if (tecla === 32) {
-        tiro(posicaoNaveTop, posicaoNaveLeft);
     }
+    
+    if (tecla === 32) {
+       // let posicaoTiroTop = posicaoNaveTop + 95;
+      //  let posicaoTiroLeft = posicaoNaveLeft + 120;
+        criaTiro();
+    }
+} 
+
+const criaTiro = () => {
+    let laser = elementoTiroCriado(); 
+    areaJogo.appendChild(laser); 
+    moveTiro(laser);
 }
 
-const tiro = (posicaoTiroY, posicaoTiroX) => {
-    console.log("tiro");
-    let divTiro = document.createElement('div');
-    let atributo1 = document.createAttribute('class');
-    let atributo2 = document.createAttribute('style');
-    atributo1.value = 'tiro-nave';
-    atributo2.value = 'top:' + posicaoTiroY + 'px'; 'left:' + posicaoTiroX + 'px';
-    divTiro.setAttributeNode(atributo1);
-    divTiro.setAttributeNode(atributo2);
+const elementoTiroCriado = () => {
+    let tiroHorizontal = parseInt(window.getComputedStyle(nave).getPropertyValue('left'));
+    let tiroVertical = parseInt(window.getComputedStyle(nave).getPropertyValue('top'));
+    let novoTiro = document.createElement('img');
+    novoTiro.src = 'img/disparo.png';
+    novoTiro.classList.add('tiro-nave');
+    novoTiro.style.left = `${tiroHorizontal -600}px`;
+    novoTiro.style.top = `${tiroVertical}px`;
+    return novoTiro;
+}
 
-    document.body.appendChild(divTiro); //Adiciona a div na tela
+const moveTiro = laser => {
+    let laserIntervalo = setInterval(() => {
+        let posicaoHorisontal = parseInt(laser.style.left);
 
+        if(posicaoHorisontal === 340){
+            laser.remove();
+        }else{
+            laser.style.left = `${posicaoHorisontal + 8}px`;
+        }
+    }, 10);
 }

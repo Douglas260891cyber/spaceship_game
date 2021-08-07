@@ -4,12 +4,16 @@ const vida = document.querySelector('.barra-vida');
 const alien = document.querySelector('.alien');
 const tamanhoTelaHor = window.innerWidth; //Recebe a largura da tela
 const tamanhoTelaVert = window.innerHeight; //Recebe a altura da tela
+const areaJogo = document.getElementById('area_jogo');
 
 let posicaoNaveTop = tamanhoTelaVert / 2; //Inicializa no meio da tela
-let posicaoNaveLeft = 10;
+let posicaoNaveLeft = 0;
 let frame = false;
 
+let jogo = false;
+
 const iniciarJogo = () => {
+    jogo = true;
     nave.style.display = 'flex';
     btnStart.style.display = 'none';
     vida.style.display = 'flex';
