@@ -66,3 +66,16 @@ const moveTiro = laser => {
         }
     }, 10);
 }
+
+const criacaoInimigos = () => {
+    let novoInimigo = document.createElement('img');
+    let inimigoSorteado = Math.floor(Math.random() * inimigos.length); 
+    novoInimigo.src = inimigoSorteado;
+    novoInimigo.classList.add('inimigo') //Add uma classe/tag com o nome 'inimigo'.
+    novoInimigo.classList.add('transacao') //Animação para quando o inimigo for atingido.
+
+    novoInimigo.style.left ='370px';
+    novoInimigo.style.top = `${Math.floor(Math.random() * 370) + 30}`;
+    areaJogo.appendChild(novoInimigo);
+    moverInimigo(novoInimigo);
+}
