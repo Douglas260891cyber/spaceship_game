@@ -58,6 +58,15 @@ const elementoTiroCriado = () => {
 const moveTiro = laser => {
     let laserIntervalo = setInterval(() => {
         let posicaoHorizontal = parseInt(laser.style.left);
+        let aliens = document.querySelectorAll('.alien');
+
+        aliens.forEach(alien => {
+            if(colisaoTiroInimigo(laser, alien)){
+                alien.src = 'img/explosao.gif';
+                alien.classList.remove('alien');
+                alien.classList.add('dead-alien');
+            }
+        });
 
         if (posicaoHorizontal >= 640) {
             laser.remove();
@@ -67,15 +76,50 @@ const moveTiro = laser => {
     }, 10);
 }
 
-const criacaoInimigos = () => {
-    let novoInimigo = document.createElement('img');
-    let inimigoSorteado = Math.floor(Math.random() * inimigos.length); 
-    novoInimigo.src = inimigoSorteado;
-    novoInimigo.classList.add('inimigo') //Add uma classe/tag com o nome 'inimigo'.
-    novoInimigo.classList.add('transacao') //Animação para quando o inimigo for atingido.
+const createAliens = () => {
+    alert('alien criado');
+    let newAlien = document.createElement('img');
+    let alienSprite = Math.floor(Math.random() * inimigos.length);
+    newAlien.src = alienSprite;
+    newAlien.classList.add('alien') //Add uma classe/tag com o nome 'inimigo'.
+    newAlien.classList.add('alien-tansacao') //Animação para quando o inimigo for atingido.
 
-    novoInimigo.style.left ='370px';
-    novoInimigo.style.top = `${Math.floor(Math.random() * 370) + 30}`;
-    areaJogo.appendChild(novoInimigo);
-    moverInimigo(novoInimigo);
+    newAlien.style.left = '370px';
+    newAlien.style.top = `${Math.floor(Math.random() * 370) + 30}`;
+    areaJogo.appendChild(newAlien);
+    moverAlien(newAlien);
+}
+
+const moverAlien = (alien) => {
+    let moveAlienInterval = setInterval(() => {
+        let xPosition = parseInt(window.getComputedStyle(alien).getPropertyValue('left'));
+        if (xPosition <= 50) {
+            if (Array.from(alien.classList).includes('dead-alien')) {
+                alien.remove();
+            } else {
+                //gameOver
+            }
+        } else {
+            alien.style.left = `${xPosition - 4}px`;
+        }
+    }, 30);
+}
+
+const colisaoTiroInimigo = (laser, alien) => {
+    let laserLeft = parseInt(laser.style.left);
+    let laserTop = parseInt(laser.style.top);
+    let laserBottom = laserTop - 20;
+    let alienLeft = parseInt(laser.style.left);
+    let alienTop = parseInt(laser.style.top);
+    let alienBottom = alienTop - 30;
+
+    if (laserLeft != 340 && laserLeft + 40 >= alienLeft) {
+        if (laserTop <= inimigoTop && laserTop >= inimigoBottom) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
 }
