@@ -5,7 +5,8 @@ const alien = document.querySelector('.alien-2');
 const tamanhoTelaHor = window.innerWidth; //Recebe a largura da tela
 const tamanhoTelaVert = window.innerHeight; //Recebe a altura da tela
 const areaJogo = document.getElementById('area_jogo');
-const aliensImg = ['img/alien_inimigo.gif','img/foguete_inimigo.gif','img/meteoro_2.gif'];
+
+const aliensImg = ['img/Alien-PNG.png','img/nave.gif','img/explosao.gif'];
 
 let posicaoNaveTop = tamanhoTelaVert / 2; //Inicializa no meio da tela
 let posicaoNaveLeft = 0;
@@ -21,7 +22,7 @@ const iniciarJogo = () => {
     alien.style.display = 'none';
     //Inicializa a função que movimenta a nave.
     document.addEventListener('keydown',acaoNave);
-    createAliens();
+    criandoInimigos();
 }
 
 btnStart.addEventListener('click', iniciarJogo);

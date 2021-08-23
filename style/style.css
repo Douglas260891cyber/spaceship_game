@@ -24,7 +24,7 @@ body {
     background: linear-gradient(0, #120c56, #000000);
 }
 
-.barra-vida{
+.barra-vida {
     background-color: blue;
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -33,7 +33,7 @@ body {
     border: white solid 2px;
     width: 300px;
     height: 15px;
-    z-index: 20;  
+    z-index: 20;
 }
 
 .iniciar {
@@ -66,13 +66,28 @@ body {
     z-index: 15;
 }
 
-.alien-2{
+.alien-2 {
     position: relative;
     z-index: 150;
 }
 
-.tiro-nave{
+.alien {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    z-index: 150;
+}
+
+.tiro-nave {
     position: relative;
     width: 30px;
     height: 6px;
+}
+
+/*teste*/
+.inimigo {
+    transform: rotate(270deg);
+    z-index: 20;
+    position:  absolute;
+    width: 150px;
 }

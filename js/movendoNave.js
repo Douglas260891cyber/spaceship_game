@@ -52,6 +52,7 @@ const elementoTiroCriado = () => {
     novoTiro.classList.add('tiro-nave');
     novoTiro.style.left = `${tiroHorizontal - 580}px`;
     novoTiro.style.top = `${tiroVertical}px`;
+
     return novoTiro;
 }
 
@@ -60,13 +61,14 @@ const moveTiro = laser => {
         let posicaoHorizontal = parseInt(laser.style.left);
         let aliens = document.querySelectorAll('.alien');
 
-        aliens.forEach(alien => {
-            if(colisaoTiroInimigo(laser, alien)){
-                alien.src = 'img/explosao.gif';
-                alien.classList.remove('alien');
-                alien.classList.add('dead-alien');
-            }
-        });
+        /*  aliens.forEach(alien => {
+              if(colisaoTiroInimigo(laser, alien)){
+                  alien.src = 'img/explosao.gif';
+                  alien.classList.remove('alien');
+                  alien.classList.add('dead-alien');
+              }
+          });
+          */
 
         if (posicaoHorizontal >= 640) {
             laser.remove();
@@ -76,36 +78,35 @@ const moveTiro = laser => {
     }, 10);
 }
 
-const createAliens = () => {
-    alert('alien criado');
-    let newAlien = document.createElement('img');
-    let alienSprite = Math.floor(Math.random() * inimigos.length);
-    newAlien.src = alienSprite;
-    newAlien.classList.add('alien') //Add uma classe/tag com o nome 'inimigo'.
-    newAlien.classList.add('alien-tansacao') //Animação para quando o inimigo for atingido.
+function criandoInimigos() {
+    let inimigo = document.createElement("img");
+    let posInimigoTop = parseInt(Math.random() * 455);
 
-    newAlien.style.left = '370px';
-    newAlien.style.top = `${Math.floor(Math.random() * 370) + 30}`;
-    areaJogo.appendChild(newAlien);
-    moverAlien(newAlien);
+    inimigo.src = "img/foguete.gif";
+    inimigo.classList.add('inimigo');
+
+    inimigo.style.left = '1000px';
+    inimigo.style.top = `${posInimigoTop}px`;
+
+    areaJogo.appendChild(inimigo);
+    moverInimigo(inimigo);
 }
 
-const moverAlien = (alien) => {
-    let moveAlienInterval = setInterval(() => {
-        let xPosition = parseInt(window.getComputedStyle(alien).getPropertyValue('left'));
-        if (xPosition <= 50) {
-            if (Array.from(alien.classList).includes('dead-alien')) {
-                alien.remove();
-            } else {
-                //gameOver
-            }
-        } else {
-            alien.style.left = `${xPosition - 4}px`;
+function moverInimigo(inimigo) {
+    let intervaloInimigo = setInterval(() => {
+        let posInimigoLeft = parseInt(window.getComputedStyle(inimigo).getPropertyValue('left'));
+        if (posInimigoLeft >= 0) {
+            inimigo.style.left = `${posInimigoLeft-=4}px`;
+            console.log(posInimigoLeft);
+        }
+        else {
+           inimigo.remove();
         }
     }, 30);
 }
 
-const colisaoTiroInimigo = (laser, alien) => {
+/*
+function colisaoTiroInimigo(laser, alien){
     let laserLeft = parseInt(laser.style.left);
     let laserTop = parseInt(laser.style.top);
     let laserBottom = laserTop - 20;
@@ -114,7 +115,7 @@ const colisaoTiroInimigo = (laser, alien) => {
     let alienBottom = alienTop - 30;
 
     if (laserLeft != 340 && laserLeft + 40 >= alienLeft) {
-        if (laserTop <= inimigoTop && laserTop >= inimigoBottom) {
+        if (laserTop <= alienTop && laserTop >= alienBottom) {
             return true;
         } else {
             return false;
@@ -123,3 +124,4 @@ const colisaoTiroInimigo = (laser, alien) => {
         return false;
     }
 }
+*/
